@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Confirmation</title>
+
+@@include("./partials/header.html")
+							<span class="intro-text-small">Thank You for Contacting!</span>
+							<h1>Message Confirmation</h1>	
+						</div>
+						
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</header>
+
+
+<div class="container-fluid footer-container">
+
+	<div class="gtco-section border-bottom">
+		<div class="gtco-container">
+			<div class="row">
+				<div class="col-md-12">
+<!--					<div class="col-md-6 animate-box">-->
+					<div class="col-md-12 animate-box">
+					<h3>Thank You for Contacting!</h3>
+          <p>We have received your message. One of our associates will follow up with you shortly.</p>
+          <p>You will be redirected to the homepage in <span id="timer">10</span> seconds. Or click to the following to go back to the homepage.</p>
+          <a href="index.html"><button class="btn btn-dark">Back to Homepage</button></a>
+          </div>
+				</div>
+<!--				<div class="col-md-5 col-md-push-1 animate-box">
+
+				</div>-->
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+@@include("./partials/footer.html")
+
+</div>
+
+<script>
+(function(){
+  var fX = setInterval(function(){
+    var x = $("#timer").html();
+    x--;
+    $("#timer").html(x);
+    if (x == 0) {
+      clearInterval(fX);
+      location.replace("index.html");
+    }
+  }, 1000);  
+}());
+
+</script>
+</body>
+</html>

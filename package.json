@@ -1,0 +1,28 @@
+{
+  "name": "dad",
+  "version": "1.0.0",
+  "description": "TITLE:  Traveler - 100% Fully Responsive Free HTML5 Bootstrap Template",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ET712-DAD/dad.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ET712-DAD/dad/issues"
+  },
+  "homepage": "https://github.com/ET712-DAD/dad#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "del": "^5.1.0",
+    "gulp": "^4.0.2",
+    "gulp-file-include": "^2.1.1",
+    "gulp-sass": "^4.0.2",
+    "node-sass": "^4.13.0"
+  }
+}
