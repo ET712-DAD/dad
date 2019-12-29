@@ -1,5 +1,64 @@
+function validateForm() {
+  var fName = document.getElementById("fullname").value;
+  if (fName == "") {
+    alert("Full Name must be filled out");
+    return false;
+	}
+
+	var eMail = document.getElementById("email").value;
+	if (eMail == "") {
+		alert("Email must be filled out");
+		return false;
+	}
+
+  var pass = document.getElementById("password").value;
+  if (pass == "") {
+    alert("Password must be filled out");
+    return false;
+  }
+
+}
+
+
+
+function validateForm2() {
+  var firstName = document.getElementById("firstName").value;
+  if (firstName == "") {
+    alert("First Name must be filled out");
+    return false;
+	}
+
+	var lastName = document.getElementById("lastName").value;
+	if (lastName == "") {
+		alert("Last Name must be filled out");
+		return false;
+	}
+
+  var eMail2 = document.getElementById("email2").value;
+  if (eMail2 == "") {
+    alert("Email must be filled out");
+    return false;
+  }
+
+  var phone = document.getElementById("phone").value;
+  if (phone == "") {
+    alert("Phone Number must be filled out");
+    return false;
+  }
+
+  var phone = document.getElementById("phone").value;
+  if (phone == "") {
+    alert("Phone Number must be filled out");
+    return false;
+  }
+
+}
+
+
+
+
 ;(function () {
-	
+
 	'use strict';
 
 	var mobileMenuOutsideClick = function() {
@@ -13,10 +72,10 @@
 
     			$('body').removeClass('offcanvas');
     			$('.js-gtco-nav-toggle').removeClass('active');
-				
+
 	    	}
-	    
-	    	
+
+
 	    }
 		});
 
@@ -61,14 +120,14 @@
 			$this
 				.addClass('active')
 				.find('ul')
-				.slideDown(500, 'easeOutExpo');				
+				.slideDown(500, 'easeOutExpo');
 		}).mouseleave(function(){
 
 			var $this = $(this);
 			$this
 				.removeClass('active')
 				.find('ul')
-				.slideUp(500, 'easeOutExpo');				
+				.slideUp(500, 'easeOutExpo');
 		});
 
 
@@ -78,7 +137,7 @@
 
     			$('body').removeClass('offcanvas');
     			$('.js-gtco-nav-toggle').removeClass('active');
-				
+
 	    	}
 		});
 	};
@@ -112,7 +171,7 @@
 			$('.animate-box').waypoint( function( direction ) {
 
 				if( direction === 'down' && !$(this.element).hasClass('animated-fast') ) {
-					
+
 					i++;
 
 					$(this.element).addClass('item-animate');
@@ -135,9 +194,9 @@
 								el.removeClass('item-animate');
 							},  k * 200, 'easeInOutExpo' );
 						});
-						
+
 					}, 100);
-					
+
 				}
 
 			} , { offset: '85%' } );
@@ -168,7 +227,7 @@
 
 
 	var owlCarousel = function(){
-		
+
 		var owl = $('.owl-carousel-carousel');
 		owl.owlCarousel({
 			items: 3,
@@ -212,22 +271,22 @@
 		});
 
 
-		
+
 
 	};
 
-	
+
 
 	var goToTop = function() {
 
 		$('.js-gotop').on('click', function(event){
-			
+
 			event.preventDefault();
 
 			$('html, body').animate({
 				scrollTop: $('html').offset().top
 			}, 500, 'easeInOutExpo');
-			
+
 			return false;
 		});
 
@@ -241,7 +300,7 @@
 			}
 
 		});
-	
+
 	};
 
 
@@ -261,9 +320,9 @@
 	var counterWayPoint = function() {
 		if ($('#gtco-counter').length > 0 ) {
 			$('#gtco-counter').waypoint( function( direction ) {
-										
+
 				if( direction === 'down' && !$(this.element).hasClass('animated') ) {
-					setTimeout( counter , 400);					
+					setTimeout( counter , 400);
 					$(this.element).addClass('animated');
 				}
 			} , { offset: '90%' } );
@@ -278,14 +337,14 @@
 	var parallax = function() {
 		$(window).stellar({
 			horizontalScrolling: false,
-			hideDistantElements: false, 
+			hideDistantElements: false,
 			responsive: true
 
 		});
 	};
 
 
-	
+
 	$(function(){
 		mobileMenuOutsideClick();
 		formTab();

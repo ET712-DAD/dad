@@ -48,7 +48,7 @@ body {
   left: 0;
   z-index: 101;
   background: rgba(0, 0, 0, 0.7);
-  content: "";
+  content: "";
 }
 
 a {
@@ -106,12 +106,10 @@ h1, h2, h3, h4, h5, h6, figure {
   width: 100%;
   padding: 20px 0;
   z-index: 1001;
-  
 }
 @media screen and (max-width: 768px) {
   .gtco-nav {
     padding: 20px 0;
-    width: 50%
   }
 }
 .gtco-nav #gtco-logo {
@@ -456,7 +454,7 @@ h1, h2, h3, h4, h5, h6, figure {
   color: #359ab3;
 }
 .gtco-cover a:hover {
-  color: #337ab7;
+  color: white;
 }
 .gtco-cover .overlay {
   z-index: 1;
@@ -622,14 +620,13 @@ h1, h2, h3, h4, h5, h6, figure {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 .gtco-contact-info ul li.address:before {
   font-size: 30px;
-  content: "\eab0";
+  content: "";
 }
 .gtco-contact-info ul li.phone:before {
   font-size: 23px;
-  content: "\eab0";
+  content: "";
 }
 .gtco-contact-info ul li.email:before {
   font-size: 23px;
@@ -1797,15 +1794,6 @@ form label {
     max-width: 100%;
   }
 }
-
-.flex-container {
-  max-width: 100%;
-  display: flex;
-  justify-content: center;
-  flex-flow: wrap row;
-}
-
-
 
 .price-box {
   background: #fff;

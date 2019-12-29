@@ -8,8 +8,8 @@
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>D.A.D</title>
-
+	<title>MYtravel | | Home</title>
+  <link rel="shortcut icon" type="image/png" href="images/Favicon2.png">
 
   	<!-- Facebook and Twitter integration -->
 	<meta property="og:title" content=""/>
@@ -67,7 +67,7 @@
 
 			<div class="row">
 				<div class="col-sm-4 col-xs-12">
-					<div id="gtco-logo"><a href="index.html">Traveler <em>.</em></a></div>
+					<div id="gtco-logo"><a href="index.html"><img src="images/logo3.png" width="70%"></a></div>
 				</div>
 				<div class="col-xs-8 text-right menu-1">
 					<ul>
@@ -100,7 +100,7 @@
 									<div class="tab-content">
 										<div class="tab-content-inner active" data-content="signup">
 											<h3>Welcome, Please Login </h3>
-											<form action="#">
+											<form action="planner.html">
 												<div class="row form-group">
 													<div class="col-md-12">
 														<label for="fullname">Login Name</label>
@@ -117,13 +117,13 @@
 
 												<div class="row form-group">
 													<div class="col-md-12">
-														<input type="submit" class="btn btn-primary btn-block" value="login">
+														<input type="submit" class="btn btn-primary btn-block" value="Login">
 													</div>
 												</div>
 												<div class="row form-group">
 													<div class="col-md-12">
 														<p style="text-align: center;">or</p>
-														<p id="sign-up" style="text-align: center;"><a href="signup.html">sign up an account</a></p>
+														<p id="sign-up" style="text-align: center;"><a href="signUp.html">sign up an account</a></p>
 
 													</div>
 												</div>
@@ -145,60 +145,16 @@
 
 
 	<footer id="gtco-footer" role="contentinfo">
-		<!-- <div class="gtco-container">
-			<div class="row row-p	b-md">
+		
 
-				<div class="col-md-4">
-					<div class="gtco-widget">
-						<h3>About Us</h3>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore eos molestias quod sint ipsum possimus temporibus officia iste perspiciatis consectetur in fugiat repudiandae cum. Totam cupiditate nostrum ut neque ab?</p>
-					</div>
-				</div> -->
-
-				<!-- <div class="col-md-2 col-md-push-1">
-					<div class="gtco-widget">
-						<h3>Destination</h3>
-						<ul class="gtco-footer-links">
-							<li><a href="#">Europe</a></li>
-							<li><a href="#">Australia</a></li>
-							<li><a href="#">Asia</a></li>
-							<li><a href="#">Canada</a></li>
-							<li><a href="#">Dubai</a></li>
-						</ul>
-					</div>
-				</div> -->
-
-				<!-- <div class="col-md-2 col-md-push-1">
-					<div class="gtco-widget">
-						<h3>Hotels</h3>
-						<ul class="gtco-footer-links">
-							<li><a href="#">Luxe Hotel</a></li>
-							<li><a href="#">Italy 5 Star hotel</a></li>
-							<li><a href="#">Dubai Hotel</a></li>
-							<li><a href="#">Deluxe Hotel</a></li>
-							<li><a href="#">BoraBora Hotel</a></li>
-						</ul>
-					</div>
-				</div> -->
-
-				<!-- <div class="col-md-3 col-md-push-1">
-					<div class="gtco-widget">
-						<h3>Get In Touch</h3>
-						<ul class="gtco-quick-contact">
-							<li><a href="#"><i class="icon-phone"></i> +1 234 567 890</a></li>
-							<li><a href="#"><i class="icon-mail2"></i> d.a.d.xplorer@gmail.com</a></li>
-							<li><a href="#"><i class="icon-chat"></i> Live Chat</a></li>
-						</ul>
-					</div>
-				</div> -->
 
 			<!-- </div> -->
 <div class="gtco-container">
 			<!-- <div class="row copyright">
 				<div class="col-md-12"> -->
 					<p class="pull-left">
-						<small class="block">&copy; 2019 D.A.D. All Rights Reserved.</small>
-						<small class="block">Designed by D.A.D</small>
+						<small class="block">&copy; 2019 D.A.D Software. All Rights Reserved.</small>
+						<small class="block">Designed by D.A.D Software</small>
 					</p>
 					<p class="pull-right">
 						<ul class="gtco-social-icons pull-right">
@@ -247,6 +203,40 @@
 
 	<!-- Main -->
 	<script src="js/main.js"></script>
+
+  <script>
+  function validate() {
+    var qq = document.getElementById("phone").value;
+    validateCreditCard(qq);
+  }
+
+  function validateCreditCard(v) {
+    var x = v.replace(/[^\d]/g, '');
+    var z = {}, y = [
+            "It must be 10 digits and all numbers.",
+            "All digits cannot be the same number."
+          ];
+    var validCondition =
+        (x.length === 10) &&
+        (!(x.match(/[^0-9]/g))) &&
+        (x != x[0].repeat(10));
+
+    z.valid = (validCondition) ? true : false, z.number = v;
+    if (z.valid == false) {
+      $("#phone").addClass("border border-danger").focus(clearWarning());
+      if (x.length !== 10 || x.match(/[^0-9]/g)) {
+        z.error = y[0];
+      } else if (x == x[0].repeat(10)) {
+        z.error = y[1];
+      }
+      $("#phone").parent().append("<small id='warning' style='color: red;'>" + z.error + "</small>");
+    } else {
+      location.replace("planner.html);
+    }
+  }
+
+
+  </script>
 
 	</body>
 </html>

@@ -1,0 +1,349 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MYtravel | | Map</title>
+ <link rel="shortcut icon" type="image/png" href="images/Favicon2.png">
+  	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="css/icomoon.css">
+	<!-- Themify Icons-->
+	<link rel="stylesheet" href="css/themify-icons.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="css/magnific-popup.css">
+
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="css/bootstrap-datepicker.min.css">
+
+	<!-- Owl Carousel-->
+	<link rel="stylesheet" href="css/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/owl.theme.default.min.css"> 
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- Modernizr JS -->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+  
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+   crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+   integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+   crossorigin=""></script>
+<style>
+  #mapid { height: 97vh; }
+  
+  .pane {
+    position: absolute;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: flex-start;
+    flex-flow: row wrap;    
+  }  
+  
+  .pane > div:first-child {
+    background-color: white;    
+    padding: 1.5rem 0.5rem 0.5rem 0.5rem;
+    overflow: scroll;
+    height: 100vh;
+  }
+
+  .pane > div:last-child {
+    padding-top: 15vh;
+  }
+
+  .pane > div:last-child button {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+  }
+  
+  .topnav {
+    display: flex;
+    justify-content: flex-start;
+    flex-flow: row wrap;
+    margin-bottom: 1.5rem;
+  }
+  
+  .venue-details {
+    padding: .75rem;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .venue-details:hover {
+    background-color: #eee;
+  }
+  
+  .venue-details > span:first-child {
+    font-weight: 600;
+  }
+</style>
+</head>
+
+<body>  
+	<nav class="gtco-nav" role="navigation">
+		<div class="gtco-container">
+		<div style="display: flex; justify-content: flex-end;">
+			<div class="row" style="background-color: rgba(0,0,0, .5); border-radius: 5px;">
+<!--
+				<div class="col-sm-4 col-xs-12">
+					
+				</div>
+				<div class="col-xs-8 text-right menu-1">
+-->
+					<ul>
+
+						<li><a href="planner.html">Planner</a></li>
+						<li><a href="signUp.html">Sign Up</a></li>
+						<li><a href="contact.html">Contact</a></li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+	</nav>
+  
+<div id="mapid"></div>
+<div id="pane" class="pane">
+  <div id="panel">
+<div id="gtco-logo" style="background-color: rgba(0,0,0,0.25); margin-bottom: 1.5rem;"><a href="index.html"><img src="images/logo3.png" width="70%"></a></div>
+   <div><h2><center>Enter Your Destination</center></h2></div>
+  <div class="topnav">
+    <div class="form-inline">
+      <div class="form-group">
+      <input id="search" size="40" class="form-control" type="text" placeholder="Search neighborhood, city, or zip">
+      <button id="searchBtn" type="button" class="search-btn btn btn-primary"><i class="fas fa-search"></i></button>
+      </div>
+    </div>
+  </div>
+  <ul class="nav nav-tabs">
+    <li id="tabA" class="active"><a data-toggle="tab" href="#planA">Plan A</a></li>
+    <li id="tabB"><a data-toggle="tab" href="#planB">Plan B</a></li>
+    <li id="tabC"><a data-toggle="tab" href="#planC">Plan C</a></li>
+  </ul>
+  <div id="tabGrp" class="tab-content">
+    <div id="planA" class="tab-pane fade in active">
+    </div>
+    <div id="planB" class="tab-pane fade">
+    </div>
+    <div id="planC" class="tab-pane fade">
+    </div>
+  </div>
+  </div>
+  <div>
+    <button id="paneBtn" type="button" class="btn btn-primary" style="width: 2.5rem; padding-left: 0; padding-right: 0">X</button>
+  </div>
+</div>
+  
+<script>
+var x = {
+    date: 1,
+    startTime: 9,
+    endTime: 8,
+    totalHour: 6,
+    location: "nyc",
+    radius: 5000,
+    time: "",
+    day: "",
+    query: "",
+    category: "",
+    section: ""
+};
+
+const fsURL = "https://dad-ajaxproxy.herokuapp.com/fsq/";
+const fsExplore = "venues/explore?";
+var fsVersion = "20191207";
+var fsLimit = 5;
+
+var markerLayer = {};
+  
+fetchAPI();
+  
+function fetchAPI() {  
+var fsApiExplore = fsURL + fsExplore +
+                   "v=" + fsVersion + "&limit=" + fsLimit + "&near=" + x.location + x.section;
+//console.log(fsApiExplore);
+fetch(fsApiExplore)    
+    .then(
+        function(response) {
+        if (response.status !== 200) {
+            console.log('Looks like there was a problem. Status Code: ' +
+            response.status);
+            return;
+        }
+
+        response.json().then(function(data) {
+            x.lat = data.response.geocode.center.lat;
+            x.lng = data.response.geocode.center.lng;
+            zoomTo();
+            $("#tabGrp > div.active").empty();
+            var markerGrp = [];
+            for (key in data.response.groups[0].items) {
+                var v = data.response.groups[0].items[key].venue;
+//                console.log("line 175", v.id);
+                
+//                var venueId = v.id;
+//                var fsApiPhoto = fsURL + venueId + "/photos?" + "client_id=" + client_id + "&client_secret=" + client_secret + "&v=" + fsVersion + "&limit=1";
+//                fetch(fsApiPhoto)
+//                    .then(
+//                      function(response) {
+//                      response.json().then(function(data) {
+//                        console.log(data);
+//                      });
+//                      }
+//                    )
+              
+                var marker = L.marker([v.location.lat, v.location.lng])
+                              .bindPopup("<b>" + v.name + "</b><br>" + 
+                                               v.location.formattedAddress[0] + "<br>" +
+                                               v.location.formattedAddress[1] + "<br><i>" +
+                                               v.categories[0].name + "</i><br><br>" +
+                                               "<a target='_blank' href='https://www.yelp.com/search?find_desc=" + v.name + "&find_loc=" + v.location.formattedAddress[1] + "'><button class='btn btn-danger'>Yelp <i class='fab fa-yelp'></i></button></a>"
+                );
+
+                markerGrp.push(marker);
+              
+                $("#tabGrp > div.active").append(
+                 "<div class='venue-details' onclick='fxPopUp()'>" +
+                 "<span>" + v.name + "</span><br>" + 
+                 v.location.formattedAddress[0] + "<br>" +
+                 v.location.formattedAddress[1] + "<br><i>" +
+                 v.categories[0].name + "</i></div>" 
+                );                                
+            } // for loop closing braces
+            
+            markerLayer = L.layerGroup(markerGrp).addTo(mymap);
+        });
+
+        }
+    )
+    .catch(function(err) {
+        console.log('Fetch Error :-S', err);
+
+    });
+}
+
+//function fsDetail(venueId) {
+//  var fsApiPhoto = fsURL + venueId + "/photos?" + "client_id=" + client_id + "&client_secret=" + client_secret + "&v=" + fsVersion + "&limit=1";
+//
+//  fetch(fsApiPhoto)
+//      .then(
+//        function(response) {
+//        response.json().then(function(data) {
+//          $("#planA").after("Rating Here" + "<br><br>");
+////            var z = "Rating Here<br><br>";
+////            return z;
+////          $("#planA").append(data.response.venue.rating + "<br><br>");
+//        });
+//        }
+//      )
+//}
+  
+/*Leaflet Map*/
+var mymap = L.map('mapid').setView([40.742185, -73.992602], 13);
+
+L.tileLayer('https://dad-ajaxproxy.herokuapp.com/mbx/styles/v1/{id}/tiles/{z}/{x}/{y}', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox/streets-v11'
+}).addTo(mymap);    
+
+function zoomTo() {
+    var lat = x.lat;
+    var lng = x.lng;
+    mymap.panTo(new L.LatLng(lat, lng));
+//    var marker = L.marker([lat, lng]).addTo(mymap);
+//    marker.bindPopup("<b>Hello world!</b><br>Start Here.").openPopup();
+}   
+
+
+
+// function onMapClick(e) {
+//     alert("You clicked the map at " + e.latlng);
+// }
+
+// mymap.on('click', onMapClick);
+
+// var popup = L.popup();
+
+// function onMapClick(e) {
+//     popup
+//         .setLatLng(e.latlng)
+//         .setContent("You clicked the map at " + e.latlng.toString())
+//         .openOn(mymap);
+// }
+
+// mymap.on('click', onMapClick);
+  
+$(function(){
+  $("#searchBtn").click(function(){
+   fxSearch();
+   markerLayer.removeFrom(mymap);
+   fetchAPI();
+  });
+  
+  $("#paneBtn").click(function(){
+    $("#panel").toggle("fast");
+  });
+  
+  $("#tabA").click(function(){
+    x.section = "";
+    markerLayer.removeFrom(mymap);
+    fetchAPI();
+  });
+
+  $("#tabB").click(function(){
+    x.section = "&section=trending";
+    markerLayer.removeFrom(mymap);
+    fetchAPI();
+  });
+
+  $("#tabC").click(function(){
+    x.section = "&section=topPicks";
+    markerLayer.removeFrom(mymap);
+    fetchAPI();
+  });
+    
+});
+  
+function fxSearch() {
+  x.location = $("#search").val();
+}
+  
+function fxPopUp() {
+  console.log("it is clicked");
+}
+
+  
+</script>
+</body>
+</html>
