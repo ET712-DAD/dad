@@ -1,6 +1,6 @@
 
 TITLE: 
-MYTravel
+MYtravel
 
 AUTHOR:
 DESIGNED & DEVELOPED by DAD Software team: Dmitriy Khaimov, Anthony Djoewanda, and Don Tu.
