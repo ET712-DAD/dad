@@ -1,9 +1,9 @@
 
 TITLE: 
-Traveler - 100% Fully Responsive Free HTML5 Bootstrap Template
+MYTravel
 
 AUTHOR:
-DESIGNED & DEVELOPED by GetTemplates.co
+DESIGNED & DEVELOPED by DAD Software team: Dmitriy Khaimov, Anthony Djoewanda, and Don Tu.
 
 Website: http://gettemplates.co/
 Twitter: http://twitter.com/gettemplatesco
@@ -56,3 +56,5 @@ https://github.com/eternicode/bootstrap-datepicker
 Demo Images:
 http://unsplash.com
 
+GetTemplates.co: 
+Traveler - 100% Fully Responsive Free HTML5 Bootstrap Template
